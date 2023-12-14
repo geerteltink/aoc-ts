@@ -1,0 +1,16 @@
+# Include config
+!.vscode
+
+# build output
+dist/
+
+# dependencies
+node_modules/
+helpers/
+
+# cache files
+.eslintcache
+
+# environment variables
+.env
+.env.production
