@@ -1,15 +1,15 @@
 import input from './input.txt';
 import testInput from './input.test.txt';
-import { Solution } from '@lib';
+import type { Solution } from '@lib';
 
 const EXPECTED_PART_ONE = 0;
 const EXPECTED_PART_TWO = 0;
 
-const part1 = async (data: string): Promise<Solution> => {
+const part1 = async (_data: string): Promise<Solution> => {
     return '';
 };
 
-const part2 = async (data: string): Promise<Solution> => {
+const part2 = async (_data: string): Promise<Solution> => {
     return '';
 };
 

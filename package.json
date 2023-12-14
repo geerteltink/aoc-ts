@@ -1,28 +1,29 @@
 {
-  "name": "adventofcode",
-  "module": "index.ts",
-  "type": "module",
-  "devDependencies": {
-    "bun-types": "latest",
-    "dotenv": "^16.3.1",
-    "prettier": "^3.1.0"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
-  },
-  "scripts": {
-    "solve": "./runNewest",
-    "format": "prettier --write .",
-    "copy": "cp -i ./src/00/index.ts ./src/$(date +'%d')/index.ts",
-    "open": "xdg-open  https://adventofcode.com/2023/day/$(date +'%-d') 2>/dev/null",
-    "start": "bun --watch --silent index.ts --day $(date +'%d')",
-    "today": "bun open && bun start",
-    "day": "bun --watch index.ts",
-    "lint:eslint": "npx eslint . --report-unused-disable-directives --fix --cache",
-    "lint:prettier": "prettier . --write --cache --list-different"
-  },
-  "dependencies": {
-    "@types/minimist": "^1.2.5",
-    "minimist": "^1.2.8"
-  }
+    "name": "adventofcode",
+    "module": "index.ts",
+    "type": "module",
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "latest",
+        "bun-types": "latest",
+        "dotenv": "^16.3.1",
+        "eslint-config-prettier": "^9.1.0",
+        "prettier": "^3.1.0"
+    },
+    "peerDependencies": {
+        "typescript": "^5.0.0"
+    },
+    "scripts": {
+        "copy": "cp -nr ./2023/day-00/ ./$(date +'%Y')/day-$(date +'%d')/",
+        "open": "xdg-open  https://adventofcode.com/2023/day/$(date +'%-d') 2>/dev/null",
+        "start": "bun --watch --silent index.ts --year $(date +'%Y') --day $(date +'%d')",
+        "today": "bun open && bun start",
+        "day": "bun --watch index.ts",
+        "lint": "bun lint:eslint && bun lint:prettier",
+        "lint:eslint": "npx eslint . --report-unused-disable-directives --fix --cache",
+        "lint:prettier": "prettier . --write --cache --list-different"
+    },
+    "dependencies": {
+        "@types/minimist": "^1.2.5",
+        "minimist": "^1.2.8"
+    }
 }

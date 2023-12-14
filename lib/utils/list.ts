@@ -32,8 +32,7 @@ export const filterOutNaN = (list: number[]) => list.filter((n) => !isNaN(n));
  * // filteredWords is now ["orange", "banana"]
  * ```
  */
-export const filterOut = <T>(list: T[], val: T) =>
-	list.filter((i) => i !== val);
+export const filterOut = <T>(list: T[], val: T) => list.filter((i) => i !== val);
 
 /**
  * Gets the last element of an array.
