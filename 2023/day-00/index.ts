@@ -2,8 +2,8 @@ import input from './input.txt';
 import testInput from './input.test.txt';
 import type { Solution } from '@lib';
 
-const EXPECTED_PART_ONE = 0;
-const EXPECTED_PART_TWO = 0;
+const EXPECTED_PART_ONE = null;
+const EXPECTED_PART_TWO = null;
 
 const part1 = async (_data: string): Promise<Solution> => {
     return '';
