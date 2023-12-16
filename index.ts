@@ -6,7 +6,6 @@ const PATH = `./${args['year']}/day-${args['day']}`;
 const loadModule = async () => {
     try {
         console.log('loading module', PATH);
-
         return await import(PATH);
     } catch (e) {
         console.error('Cannot load module.');
@@ -15,11 +14,6 @@ const loadModule = async () => {
 };
 
 const { run } = await loadModule();
-console.log(`
-Run #${new Date().getTime()} ...
-            `);
+console.log(`\nRun #${new Date().toISOString()} ...\n`);
 await run(args['year'], args['day']);
-
-console.log(`
-###########################
-            `);
+console.log(`\n###########################\n`);
