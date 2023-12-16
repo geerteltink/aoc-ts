@@ -13,7 +13,7 @@ const loadModule = async () => {
     }
 };
 
-const { run } = await loadModule();
+const { main } = await loadModule();
 console.log(`\nRun #${new Date().toISOString()} ...\n`);
-await run(args['year'], args['day']);
+await main(args['year'], args['day']);
 console.log(`\n###########################\n`);

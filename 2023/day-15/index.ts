@@ -1,6 +1,6 @@
 import input from './input.txt';
 import testInput from './input.test.txt';
-import type { Solution } from '@lib';
+import { testSolution, type Solution, solve } from '@lib';
 
 const EXPECTED_PART_ONE = 1320;
 const EXPECTED_PART_TWO = 145;
@@ -62,27 +62,25 @@ function hash(string: string): number {
         .reduce((a, b) => ((a + b) * 17) % 256, 0);
 }
 
-export const run = async (year: string, day: string) => {
-    // Part 1
-    console.log(`Solving year ${year} day ${day} part 1...`);
-    const testSolutionPart1 = await part1(testInput);
-    if (testSolutionPart1 != EXPECTED_PART_ONE) {
-        const msg = `Test day ${day} part 1 failed!\nExpected: ${EXPECTED_PART_ONE} - Received: ${testSolutionPart1}`;
-        console.error(msg);
-        return;
-    }
-    console.log(`SOLUTION DAY ${day} PART 1: `, await part1(input));
-
-    // part 2
-    console.log(`Solving year ${year} day ${day} part 2...`);
-    const testSolutionPart2 = await part2(testInput);
-    if (testSolutionPart2 != EXPECTED_PART_TWO) {
-        const msg = `Test ${year}/${day} part 2 failed!\nExpected: ${EXPECTED_PART_TWO} - Received: ${testSolutionPart2}`;
-        console.error(msg);
-        return;
-    }
-    console.log(`SOLUTION DAY ${day} PART 2: `, await part2(input));
-
-    console.log(`DONE: 🎉`);
-    process.exit(0);
+export const main = async (year: string, day: string) => {
+    return Promise.resolve()
+        .then(function () {
+            return testSolution(year, day, part1, testInput, EXPECTED_PART_ONE);
+        })
+        .then(function () {
+            return solve(year, day, part1, input);
+        })
+        .then(function () {
+            return testSolution(year, day, part2, testInput, EXPECTED_PART_TWO);
+        })
+        .then(function () {
+            return solve(year, day, part2, input);
+        })
+        .then(function () {
+            console.log(`DONE: 🎉`);
+            process.exit(0);
+        })
+        .catch((error: Error) => {
+            console.error(error.message);
+        });
 };

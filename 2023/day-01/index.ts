@@ -1,7 +1,8 @@
 import input from './input.txt';
 import testInput1 from './input1.test.txt';
 import testInput2 from './input2.test.txt';
-import { type Solution, filterOutNaN, lastElementOfList, mapToInt, numToStr as numberToString, sum } from '@lib';
+import { filterOutNaN, lastElementOfList, mapToInt, numToStr as numberToString, sum } from '@lib';
+import { testSolution, type Solution, solve } from '@lib';
 
 const EXPECTED_PART_ONE = 142;
 const EXPECTED_PART_TWO = 281;
@@ -48,25 +49,25 @@ const parser = (s: string): string => {
         .replaceAll('nine', 'n9e');
 };
 
-export const run = async (year: string, day: string) => {
-    console.log(`Solving year ${year} day ${day} part 1...`);
-    const testSolutionPart1 = await part1(testInput1);
-    if (testSolutionPart1 != EXPECTED_PART_ONE) {
-        const msg = `Test day ${day} part 1 failed!\nExpected: ${EXPECTED_PART_ONE} - Received: ${testSolutionPart1}`;
-        console.error(msg);
-        return;
-    }
-    console.log(`SOLUTION DAY ${day} PART 1: `, await part1(input));
-
-    console.log(`Solving year ${year} day ${day} part 2...`);
-    const testSolutionPart2 = await part2(testInput2);
-    if (testSolutionPart2 != EXPECTED_PART_TWO) {
-        const msg = `Test ${year}/${day} part 2 failed!\nExpected: ${EXPECTED_PART_TWO} - Received: ${testSolutionPart2}`;
-        console.error(msg);
-        return;
-    }
-    console.log(`SOLUTION DAY ${day} PART 2: `, await part2(input));
-
-    console.log(`DONE: 🎉`);
-    process.exit(0);
+export const main = async (year: string, day: string) => {
+    return Promise.resolve()
+        .then(function () {
+            return testSolution(year, day, part1, testInput1, EXPECTED_PART_ONE);
+        })
+        .then(function () {
+            return solve(year, day, part1, input);
+        })
+        .then(function () {
+            return testSolution(year, day, part2, testInput2, EXPECTED_PART_TWO);
+        })
+        .then(function () {
+            return solve(year, day, part2, input);
+        })
+        .then(function () {
+            console.log(`DONE: 🎉`);
+            process.exit(0);
+        })
+        .catch((error: Error) => {
+            console.error(error.message);
+        });
 };

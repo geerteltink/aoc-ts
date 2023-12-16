@@ -1,5 +1,3 @@
-import { findItemCoordinates } from '../../helpers';
-
 export interface Grid<Coordinate, Value> {}
 
 export interface Coordinate {
