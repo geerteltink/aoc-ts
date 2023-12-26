@@ -1,4 +1,5 @@
-import { Solution, part } from './types/solution';
+export type Solution = string | number | null;
+export type part = (data: string) => Promise<Solution>;
 
 export const testSolution = async (year: string, day: string, part: part, input: string, expected: Solution) => {
     console.log(`Solving year ${year} day ${day} ${part.name}...`);

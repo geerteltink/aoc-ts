@@ -1,7 +1,7 @@
 import input from './input.txt';
 import testInput1 from './input1.test.txt';
 import testInput2 from './input2.test.txt';
-import { filterOutNaN, lastElementOfList, mapToInt, numToStr as numberToString, sum } from '@lib';
+import { filterOutNaN, lastElementOfList, mapToInt, numToStr as numberToString, sumAll } from '@lib';
 import { testSolution, type Solution, solve } from '@lib';
 
 const EXPECTED_PART_ONE = 142;
@@ -19,7 +19,7 @@ const part1 = async (data: string): Promise<Solution> => {
         })
     );
 
-    return sum(nums);
+    return sumAll(nums);
 };
 
 const part2 = async (data: string): Promise<Solution> => {
@@ -33,7 +33,7 @@ const part2 = async (data: string): Promise<Solution> => {
         })
     );
 
-    return sum(nums);
+    return sumAll(nums);
 };
 
 const parser = (s: string): string => {

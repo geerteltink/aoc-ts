@@ -23,6 +23,7 @@
     "lint:prettier": "prettier . --write --cache --list-different"
   },
   "dependencies": {
+    "@graph-algorithm/minimum-cut": "^2.0.0",
     "@types/minimist": "^1.2.5",
     "@types/object-hash": "^3.0.6",
     "minimist": "^1.2.8",
