@@ -1,5 +1,7 @@
 # Advent Of Code
 
+[Advent Of Code](https://adventofcode.com/)
+
 In 2022 I had the brilliant idea to participate in the code of advent. My
 weapon of choice was Rust. I have to admit, I learned a lot about Rust and I
 really liked it. It is incredibly fast, easy to setup and has a steep learning
