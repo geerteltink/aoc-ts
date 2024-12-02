@@ -28,10 +28,12 @@ const part2 = async (data: string): Promise<Solution> => {
             const boxId = hash(label);
 
             if (operator === '=') {
-                const lenses = boxes.has(boxId) ? boxes.get(boxId) : new Map<string, number>().set(label, focalLength);
-                // @ts-ignore: Type 'undefined' is not assignable
+                let lenses = boxes.get(boxId);
+                if (!lenses) {
+                    lenses = new Map<string, number>();
+                    boxes.set(boxId, lenses);
+                }
                 lenses.set(label, focalLength);
-                // @ts-ignore: Type 'undefined' is not assignable
                 boxes.set(boxId, lenses);
             } else {
                 boxes.get(boxId)?.delete(label);

@@ -29,5 +29,5 @@
             "@lib": ["./lib/index.ts"]
         }
     },
-    "include": ["index.ts", "2023/**/*", "2024/**/*", "types"]
+    "include": ["index.ts", "2023/**/*", "2024/**/*", "lib/**/*", "types"]
 }
