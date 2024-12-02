@@ -5,7 +5,7 @@ export interface Coordinate {
     y: number;
 }
 
-export type Value = String | Number;
+export type Value = string | number;
 
 export class Grid<Coordinate, Value> {
     public minX = 0;
@@ -45,7 +45,9 @@ export class Grid<Coordinate, Value> {
     }
 
     public *values(): IterableIterator<Value> {
-        return this.data.values();
+        for (const value of this.data.values()) {
+            yield value;
+        }
     }
 
     /*

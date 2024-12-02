@@ -4,7 +4,7 @@ import { testSolution, type Solution, solve, multiply, TupleSet } from '@lib';
 import { mincut } from '@graph-algorithm/minimum-cut';
 
 const EXPECTED_PART_ONE = 54;
-const EXPECTED_PART_TWO = null;
+const EXPECTED_PART_TWO = undefined;
 
 type Connection = [from: string, to: string];
 

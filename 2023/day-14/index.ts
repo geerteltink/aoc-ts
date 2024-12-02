@@ -1,7 +1,15 @@
 import input from './input.txt';
 import testInput from './input.test.txt';
-import { Coordinate, Grid, Value, createGrid, printGrid } from '@lib';
-import { testSolution, type Solution, solve } from '@lib';
+import {
+    type Coordinate,
+    type Grid,
+    type Value,
+    createGrid,
+    printGrid,
+    testSolution,
+    type Solution,
+    solve,
+} from '@lib';
 import objectHash from 'object-hash';
 
 const EXPECTED_PART_ONE = 136;
@@ -25,7 +33,7 @@ const part1 = async (data: string): Promise<Solution> => {
 };
 
 const part2 = async (data: string): Promise<Solution> => {
-    let grid = createGrid(data, '.');
+    const grid = createGrid(data, '.');
     const cycleCache = new Map<string, Grid<Coordinate, Value>>();
 
     let cycle = 0;

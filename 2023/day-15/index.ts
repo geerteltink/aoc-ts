@@ -23,11 +23,11 @@ const part2 = async (data: string): Promise<Solution> => {
         .split(',')
         .forEach((step) => {
             const operator = step.includes('-') ? '-' : '=';
-            const [label, focalStr] = step.split(/[\-=]/);
+            const [label, focalStr] = step.split(/[-=]/);
             const focalLength = parseInt(focalStr);
             const boxId = hash(label);
 
-            if (operator == '=') {
+            if (operator === '=') {
                 const lenses = boxes.has(boxId) ? boxes.get(boxId) : new Map<string, number>().set(label, focalLength);
                 // @ts-ignore: Type 'undefined' is not assignable
                 lenses.set(label, focalLength);

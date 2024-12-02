@@ -1,9 +1,9 @@
 import { describe, expect, test } from 'bun:test';
-import { PriorityQueue, PriorityQueueComparator } from './structure';
+import { PriorityQueue, type PriorityQueueComparator } from './structure';
+
+const compareFunction: PriorityQueueComparator<number> = (a: number, b: number) => b - a;
 
 describe('Data structure library', () => {
-    const compareFunction: PriorityQueueComparator<number> = (a: number, b: number) => b - a;
-
     test('Priority queue', () => {
         expect(new PriorityQueue(compareFunction)).toEqual(new PriorityQueue(compareFunction));
         expect(new PriorityQueue(compareFunction, [0, 10, 2, 5])).toEqual(

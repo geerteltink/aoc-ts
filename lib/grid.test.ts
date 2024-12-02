@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test';
-import { Line, Point, Points, isAdjacent, taxicab } from './grid';
+import { type Line, type Point, Points, isAdjacent, taxicab } from './grid';
 
 describe('Grid library', () => {
     test('Point is adjacent to line', () => {
