@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
         "lib": ["ESNext"],
-        "module": "esnext",
-        "target": "esnext",
+        "module": "ESNEXT",
+        "target": "ESNEXT",
         "moduleResolution": "bundler",
         "moduleDetection": "force",
         "allowImportingTsExtensions": true,
@@ -19,5 +19,6 @@
         "paths": {
             "@lib": ["./lib/index.ts"]
         }
-    }
+    },
+    "include": ["index.ts", "2023/**/*", "2024/**/*", "types"]
 }
