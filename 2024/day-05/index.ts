@@ -1,7 +1,7 @@
 import input from './input.txt';
 import testInput1 from './input1.test.txt';
 import testInput2 from './input2.test.txt';
-import { testSolution, type Solution, solve } from '@lib';
+import { testSolution, type Solution, solve, dfs, type Graph } from '@lib';
 
 const EXPECTED_PART_ONE = 143;
 const EXPECTED_PART_TWO = 123;
@@ -53,29 +53,19 @@ const part1 = async (data: string): Promise<Solution> => {
 };
 
 const sortUpdate = (update: number[], rules: [number, number][]): number[] => {
-    const dependencies: Map<number, Set<number>> = new Map();
-    update.forEach((page) => dependencies.set(page, new Set()));
+    const dependencies: Graph<number> = {};
+    update.forEach((page) => (dependencies[page] = []));
 
     rules.forEach(([a, b]) => {
-        if (dependencies.has(a) && dependencies.has(b)) {
-            dependencies.get(b)!.add(a);
+        if (dependencies[a] !== undefined && dependencies[b] !== undefined) {
+            dependencies[b].push(a);
         }
     });
 
     const sortedUpdate: number[] = [];
     const visited: Set<number> = new Set();
 
-    // TODO: extract the Depth-First Search algorithm to lib/dfs.ts
-    const dfs = (page: number): void => {
-        if (visited.has(page)) {
-            return;
-        }
-        visited.add(page);
-        dependencies.get(page)!.forEach((dep) => dfs(dep));
-        sortedUpdate.push(page);
-    };
-
-    update.forEach((page) => dfs(page));
+    update.forEach((page) => dfs(dependencies, page, visited, sortedUpdate));
 
     return sortedUpdate;
 };

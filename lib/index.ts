@@ -9,3 +9,4 @@ export * from './tuple';
 export * from './utils/grid';
 export * from './utils/int';
 export * from './utils/numbers';
+export * from './dfs';
