@@ -13,7 +13,7 @@
         "@typescript-eslint/eslint-plugin": "^8.16.0",
         "bun-types": "^1.1.38",
         "dotenv": "^17.2.3",
-        "eslint-config-prettier": "^9.1.0",
+        "eslint-config-prettier": "^10.1.8",
         "oxlint": "^0.14.0",
         "prettier": "^3.7.4"
     },
