@@ -15,7 +15,7 @@
         "dotenv": "^17.2.3",
         "eslint-config-prettier": "^10.1.8",
         "oxlint": "^1.38.0",
-        "prettier": "^3.7.4"
+        "prettier": "^3.8.0"
     },
     "peerDependencies": {
         "typescript": "^5.9.3"
